@@ -86,10 +86,8 @@ Cygwin_PICOLISP-FLAGS =
 Cygwin_DLL-DEFS = $(bin)/picolisp.dll
 Cygwin_LCRYPT = -lcrypt
 Cygwin_STRIP = strip
-
-# Windows-like things need special extensions.
-exe != test "$(OS)" == "Cygwin" && echo ".exe" || echo ""
-dll != test "$(OS)" == "Cygwin" && echo ".dll" || echo ""
+Cygwin_exe = .exe
+Cygwin_dll = .dll
 
 # CCLD is the cc (compiler frontend) to use for the link step.
 # FreeBSD needs clang; all others use $(CC).
@@ -102,6 +100,8 @@ DYNAMIC-LIB-FLAGS := $($(OS)_DYNAMIC-LIB-FLAGS)
 DLL-DEFS          := $($(OS)_DLL-DEFS)
 LCRYPT            := $($(OS)_LCRYPT)
 STRIP             := $($(OS)_STRIP)
+exe               := $($(OS)_exe)
+dll               := $($(OS)_dll)
 
 
 picolisp: $(bin)/picolisp$(exe) $(lib)/ext$(dll) $(lib)/ht$(dll)
