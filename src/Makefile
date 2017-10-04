@@ -1,4 +1,4 @@
-# 03oct17abu
+# 04oct17abu
 # (c) Software Lab. Alexander Burger
 
 bin = ../bin
@@ -99,11 +99,12 @@ CFLAGS            := $(CFLAGS) $($(OS)_CFLAGS)
 PICOLISP-FLAGS    := $($(OS)_PICOLISP-FLAGS)
 LIB-FLAGS         := $($(OS)_LIB-FLAGS)
 DYNAMIC-LIB-FLAGS := $($(OS)_DYNAMIC-LIB-FLAGS)
+DLL-DEFS          := $($(OS)_DLL-DEFS)
 LCRYPT            := $($(OS)_LCRYPT)
 STRIP             := $($(OS)_STRIP)
 
 
-picolisp: $(bin)/picolisp $(lib)/ext$(dll) $(lib)/ht$(dll)
+picolisp: $(bin)/picolisp$(exe) $(lib)/ext$(dll) $(lib)/ht$(dll)
 tools: $(bin)/lat1 $(bin)/utf2 $(bin)/balance
 gate: $(bin)/ssl $(bin)/httpGate
 
@@ -176,6 +177,7 @@ debug:
 	@echo "LIB-FLAGS         = $(LIB-FLAGS)"
 	@echo "DYNAMIC-LIB-FLAGS = $(DYNAMIC-LIB-FLAGS)"
 	@echo "LCRYPT            = $(LCRYPT)"
+	@echo "DLL-DEFS          = $(DLL-DEFS)"
 	@echo "STRIP             = $(STRIP)"
 	@echo "exe               = $(exe)"
 	@echo "dll               = $(dll)"
